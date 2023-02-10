@@ -1,0 +1,25 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block content %}
+    <h1>ASSIGNMENT 12 - showGoods One</h1>
+    <hr>
+    <p><strong>Category: </strong>{{ Goods.goodsCategory.gc_name }}</p>
+    <p><strong>ID: </strong>{{ Goods.gid }}</p>
+    <p><strong>Name: </strong>{{ Goods.name }}</p>
+    <p><strong>Brand: </strong>{{ Goods.brand }}</p>
+    <p><strong>Model: </strong>{{ Goods.model }}</p>
+    <p><strong>Price: </strong>{{ Goods.price }}</p>
+    <p><strong>Net: </strong>{{ Goods.net }}</p>
+    <p><strong>Property: </strong>{{ Goods.property }}</p>
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="gid" value="{{ Goods.gid }}">
+                <input type="submit" value="Delete" class="btn btn-danger"
+                       onclick="return confirm('Confirm')">
+                <input type="button" value="cancel" onclick="history.back()" class="btn btn-secondary">
+            </form>
+        </div>
+    </div>
+{% endblock %}

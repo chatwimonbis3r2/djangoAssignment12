@@ -1,0 +1,48 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-11">
+            <h1>ASSIGNMENT 12 - showGoods List</h1>
+        </div>
+        <div class="col-1">
+            <a href="{% url 'newGoods' %}" class="btn btn-primary w-100">+ Add</a>
+        </div>
+    </div>
+    <hr>
+    <table class="table text-center">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Net</th>
+            <th>Category</th>
+            <th>Manage</th>
+        </tr>
+        {% for Goods in Goods %}
+            <tr>
+                <td>{{ Goods.gid }}</td>
+                <td>{{ Goods.name }}</td>
+                <td>{{ Goods.brand }}</td>
+                <td>{{ Goods.model }}</td>
+                <td>{{ Goods.price }}</td>
+                <td>{{ Goods.net }}</td>
+                <td>{{ Goods.goodsCategory.gc_name }}</td>
+                <td>
+                    <a href="{% url 'showGoodsOne' Goods.gid %}"
+                       class="btn text-primary">
+                        <i class="bi bi-search"></i>
+                    </a>
+                    <a href="{% url 'updateGoods' Goods.gid %}" class="btn text-warning">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a href="{% url 'deleteGoods' Goods.gid %}" class="btn text-danger">
+                        <i class="bi bi-trash3"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

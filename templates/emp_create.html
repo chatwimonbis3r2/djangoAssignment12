@@ -1,0 +1,9 @@
+{% extends 'Home.html' %}
+{% block content %}
+    <h2 class="form-title">New Employee</h2>
+    <form class="form-group" method="post">
+        {% csrf_token %}
+        {{ form }} <br>
+        <input type="submit" value="Submit"/>
+    </form>
+{% endblock %}

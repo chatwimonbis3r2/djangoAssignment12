@@ -1,0 +1,15 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block content %}
+    <h1 class="text-center">Add Goods</h1>
+    <form method="post" class="form-control">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <div class="text-center mt-3">
+            <button type="submit"  value="save"
+                    class="btn btn-success">Save</button>
+            <button type="submit" value="clear"
+                    class="btn btn-secondary">Clear</button>
+        </div>
+    </form>
+{% endblock %}

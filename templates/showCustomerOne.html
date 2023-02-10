@@ -1,0 +1,22 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block content %}
+    <h1>ASSIGNMENT 12 - showCustomer One</h1>
+    <hr>
+    <p><strong>ID: </strong>{{ Customer.cid }}</p>
+    <p><strong>Name: </strong>{{ Customer.name }}</p>
+    <p><strong>Surname: </strong>{{ Customer.surname }}</p>
+    <p><strong>Password: </strong>{{ Customer.password }}</p>
+    <p><strong>Address: </strong>{{ Customer.address }}</p>
+    <p><strong>Telephone: </strong>{{ Customer.telephone }}</p>
+    <p><strong>Gender: </strong>{{ Customer.gender }}</p>
+    <p><strong>Carreer: </strong>{{ Customer.carreer }}</p>
+    <div class="row">
+        <div class="col-6">
+            <a href="{% url 'updateCustomer' Customer.cid %}" type="button" class="btn btn-warning w-100 h-100">Edit</a>
+        </div>
+        <div class="col-6">
+            <a href="{% url 'deleteCustomer' Customer.cid %}" type="button" class="btn btn-danger w-100 h-100">Delete</a>
+        </div>
+    </div>
+{% endblock %}

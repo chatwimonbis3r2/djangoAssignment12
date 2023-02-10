@@ -1,0 +1,22 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block content %}
+    <h1>ASSIGNMENT 12 - showGoods One</h1>
+    <hr>
+    <p><strong>Category: </strong>{{ Goods.goodsCategory.gc_name }}</p>
+    <p><strong>ID: </strong>{{ Goods.gid }}</p>
+    <p><strong>Name: </strong>{{ Goods.name }}</p>
+    <p><strong>Brand: </strong>{{ Goods.brand }}</p>
+    <p><strong>Model: </strong>{{ Goods.model }}</p>
+    <p><strong>Price: </strong>{{ Goods.price }}</p>
+    <p><strong>Net: </strong>{{ Goods.net }}</p>
+    <p><strong>Property: </strong>{{ Goods.property }}</p>
+    <div class="row">
+        <div class="col-6">
+            <a href="{% url 'updateGoods' Goods.gid %}" type="button" class="btn btn-warning w-100 h-100">Edit</a>
+        </div>
+        <div class="col-6">
+            <a href="{% url 'deleteGoods' Goods.gid %}"  type="button" class="btn btn-danger w-100 h-100">Delete</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'Home.html' %}
+{% load static %}
+{% block content %}
+    <h1>ASSIGNMENT 12 - showCustomer One</h1>
+    <hr>
+    <p><strong>ID: </strong>{{ Customer.cid }}</p>
+    <p><strong>Name: </strong>{{ Customer.name }}</p>
+    <p><strong>Surname: </strong>{{ Customer.surname }}</p>
+    <p><strong>Password: </strong>{{ Customer.password }}</p>
+    <p><strong>Address: </strong>{{ Customer.address }}</p>
+    <p><strong>Telephone: </strong>{{ Customer.telephone }}</p>
+    <p><strong>Gender: </strong>{{ Customer.gender }}</p>
+    <p><strong>Carreer: </strong>{{ Customer.carreer }}</p>
+    <div class="row">
+        <div class="col">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="cid" value="{{ Customer.cid }}">
+                <input type="submit" value="Delete" class="btn btn-danger"
+                       onclick="return confirm('Confirm')">
+                <input type="button" value="cancel" onclick="history.back()" class="btn btn-secondary">
+            </form>
+        </div>
+    </div>
+{% endblock %}
